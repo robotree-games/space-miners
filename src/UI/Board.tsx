@@ -27,7 +27,7 @@ class Board extends React.Component<IProps> {
         this.props.events.endPhase()
         this.props.events.endTurn()
     }
-  
+
     render() {
      let air = 25;
       const cellStyle: React.CSSProperties = {
@@ -37,12 +37,12 @@ class Board extends React.Component<IProps> {
         lineHeight: '50px',
         textAlign: 'center',
       };
-  
+
       let tbody: JSX.Element[] = [];
       for (let i = 0; i < 12; i++) {
         let cells: JSX.Element[] = [];
         for (let j = 0; j < 1; j++) {
-          const id = 3 * i + j;
+          const id = 1 * i + j;
           cells.push(
             <td style={cellStyle} key={id}>
               {this.props.G.cells[id]}

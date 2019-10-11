@@ -9,7 +9,7 @@ function rollDie(G: any, ctx: any, number: number) {
     G.rollValue = die;
 }
 
-function movePlayer(G: any, ctx: any, roll: number) {
+function movePlayer(G: any, ctx: any, roll: number, from: number) {
     G.players[ctx.currentPlayer].currentPosition = G.players[ctx.currentPlayer].currentPosition + roll;
     G.cells[G.players[ctx.currentPlayer].currentPosition] = G.players[ctx.currentPlayer].token;
 }
