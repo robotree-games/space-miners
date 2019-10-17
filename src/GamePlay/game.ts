@@ -17,6 +17,10 @@ function movePlayer(G: any, ctx: any, roll: number, from: number) {
 function pickUpTreasure(G: any, ctx: any) {
     G.players[ctx.currentPlayer].treasure.push(G.players[ctx.currentPlayer].currentPosition)
 }
+function dropTreasure(G: any, ctx: any) {
+    //TODO: player needs to select which item to drop
+    G.players[ctx.currentPlayer].treasure.pop();
+}
 
 const SpaceMiners = ({
     name: "space-miners",
@@ -32,7 +36,7 @@ const SpaceMiners = ({
             next: 'treasure',
         },
         treasure: {
-            moves: {pickUpTreasure},
+            moves: {pickUpTreasure, dropTreasure},
             next: 'roll'
         },
     },

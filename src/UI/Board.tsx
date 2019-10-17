@@ -31,6 +31,11 @@ class Board extends React.Component<IProps> {
       this.props.events.endPhase()
       this.props.events.endTurn()
     }
+    drop() {
+      this.props.moves.dropTreasure()
+      this.props.events.endPhase()
+      this.props.events.endTurn()
+    }
 
     render() {
      let air = 25;
@@ -66,6 +71,7 @@ class Board extends React.Component<IProps> {
             <button onClick={() => this.move(this.props.G.rollValue)}>Move Forward</button>
             <button onClick={() => this.pickUp()}>Pick Up</button>
             <button onClick={() => this.props.events.endTurn()}>Don't Pick Up</button>
+            <button onClick={() => this.drop()}>Drop Treasure</button>
           </div>
           <table id="board">
             <tbody>{tbody}</tbody>
