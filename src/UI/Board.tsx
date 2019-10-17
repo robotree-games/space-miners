@@ -19,13 +19,17 @@ interface IProps {
 
 class Board extends React.Component<IProps> {
     roll(number: number) {
-       this.props.moves.rollDie(number)
-       this.props.events.endPhase()
+      this.props.moves.rollDie(number)
+      this.props.events.endPhase()
     }
     move(roll: number) {
-        this.props.moves.movePlayer(roll)
-        this.props.events.endPhase()
-        this.props.events.endTurn()
+      this.props.moves.movePlayer(roll)
+      this.props.events.endPhase()
+    }
+    pickUp() {
+      this.props.moves.pickUpTreasure()
+      this.props.events.endPhase()
+      this.props.events.endTurn()
     }
 
     render() {
@@ -55,10 +59,13 @@ class Board extends React.Component<IProps> {
       return (
         <div>
           <div className="ship">
+            <h1>Current Player: {this.props.G.players[this.props.ctx.currentPlayer].token}</h1>
             <h1>Air: {air}/25</h1>
             <h1>Roll Value: {this.props.G.rollValue}</h1>
             <button onClick={() => this.roll(6)}>roll dice</button>
             <button onClick={() => this.move(this.props.G.rollValue)}>Move Forward</button>
+            <button onClick={() => this.pickUp()}>Pick Up</button>
+            <button onClick={() => this.props.events.endTurn()}>Don't Pick Up</button>
           </div>
           <table id="board">
             <tbody>{tbody}</tbody>
@@ -67,5 +74,5 @@ class Board extends React.Component<IProps> {
       );
     }
   }
-  
+
 export default Board;

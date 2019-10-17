@@ -14,7 +14,11 @@ function movePlayer(G: any, ctx: any, roll: number, from: number) {
     G.cells[G.players[ctx.currentPlayer].currentPosition] = G.players[ctx.currentPlayer].token;
 }
 
-const TicTacToe = ({
+function pickUpTreasure(G: any, ctx: any) {
+    G.players[ctx.currentPlayer].treasure.push(G.players[ctx.currentPlayer].currentPosition)
+}
+
+const SpaceMiners = ({
     name: "space-miners",
     setup,
     phases: {
@@ -25,9 +29,13 @@ const TicTacToe = ({
         },
         movement: {
             moves: {movePlayer},
-            next: 'roll',
+            next: 'treasure',
+        },
+        treasure: {
+            moves: {pickUpTreasure},
+            next: 'roll'
         },
     },
 
   });
-export default TicTacToe;
+export default SpaceMiners;

@@ -1,6 +1,7 @@
 const createPlayer = (id: any, token: string) => ({
     id,
     token,
+    treasure: [],
     currentPosition: 0
 })
 
