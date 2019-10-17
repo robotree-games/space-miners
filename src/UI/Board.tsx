@@ -6,7 +6,8 @@ import { AI, IAIMoveObj } from 'boardgame.io/ai';
 type GameState = {
     cells: Array<IPlayer | null>,
     rollValue: number,
-    players: any
+    players: any,
+    air: number
 };
 
 interface IProps {
@@ -38,7 +39,6 @@ class Board extends React.Component<IProps> {
     }
 
     render() {
-     let air = 25;
       const cellStyle: React.CSSProperties = {
         border: '1px solid #555',
         width: '50px',
@@ -65,7 +65,7 @@ class Board extends React.Component<IProps> {
         <div>
           <div className="ship">
             <h1>Current Player: {this.props.G.players[this.props.ctx.currentPlayer].token}</h1>
-            <h1>Air: {air}/25</h1>
+            <h1>Air: {this.props.G.air}/25</h1>
             <h1>Roll Value: {this.props.G.rollValue}</h1>
             <button onClick={() => this.roll(6)}>roll dice</button>
             <button onClick={() => this.move(this.props.G.rollValue)}>Move Forward</button>

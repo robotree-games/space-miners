@@ -7,6 +7,7 @@ const createPlayer = (id: any, token: string) => ({
 
 const setup = () => ({
     cells: Array(12).fill(null),
+    air: 25,
     players: [
         createPlayer(0, 'X'),
         createPlayer(1, 'Y')

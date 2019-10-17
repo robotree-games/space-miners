@@ -10,6 +10,13 @@ function rollDie(G: any, ctx: any, number: number) {
 }
 
 function movePlayer(G: any, ctx: any, roll: number, from: number) {
+    //check for treasure to effect roll/shared air supply
+
+    if(G.players[ctx.currentPlayer].treasure.length > 0 ) {
+        roll = roll - G.players[ctx.currentPlayer].treasure.length;
+        G.air = G.air - G.players[ctx.currentPlayer].treasure.length;
+    }
+
     G.players[ctx.currentPlayer].currentPosition = G.players[ctx.currentPlayer].currentPosition + roll;
     G.cells[G.players[ctx.currentPlayer].currentPosition] = G.players[ctx.currentPlayer].token;
 }
