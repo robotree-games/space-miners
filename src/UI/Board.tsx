@@ -46,6 +46,12 @@ class Board extends React.Component<IProps> {
         lineHeight: '50px',
         textAlign: 'center',
       };
+      const blankCell: React.CSSProperties = {
+        width: '50px',
+        height: '50px',
+        lineHeight: '50px',
+        textAlign: 'center',
+      }
 
       let tbody: JSX.Element[] = [];
       for (let i = 0; i < 12; i++) {
@@ -58,7 +64,9 @@ class Board extends React.Component<IProps> {
             </td>
           );
         }
-        tbody.push(<tr key={i}>{cells}</tr>);
+        tbody.push(<tr key={i}>
+                    {cells}
+                  </tr>);
       }
 
       return (
@@ -69,6 +77,7 @@ class Board extends React.Component<IProps> {
             <h1>Roll Value: {this.props.G.rollValue}</h1>
             <button onClick={() => this.roll(6)}>roll dice</button>
             <button onClick={() => this.move(this.props.G.rollValue)}>Move Forward</button>
+            <button onClick={() => this.props.moves.turnBack()}>Turn Back</button>
             <button onClick={() => this.pickUp()}>Pick Up</button>
             <button onClick={() => this.props.events.endTurn()}>Don't Pick Up</button>
             <button onClick={() => this.drop()}>Drop Treasure</button>

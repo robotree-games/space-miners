@@ -2,7 +2,9 @@ const createPlayer = (id: any, token: string) => ({
     id,
     token,
     treasure: [],
-    currentPosition: 0
+    currentPosition: 0,
+    movementDirection: 'forward',
+    isSafe: false
 })
 
 const setup = () => ({
