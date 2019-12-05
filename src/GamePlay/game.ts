@@ -1,10 +1,12 @@
 import { Game, IPlayer, IGameCtx } from 'boardgame.io/core';
 import { AI, IAIMoveObj } from 'boardgame.io/ai';
-import setup from '../GameState/gameState';
+import GameState from '../GameState/GameState';
 import { once } from 'cluster';
 import { Z_MEM_ERROR } from 'zlib';
 
 
+const gState = new GameState();
+const setup = gState.setup;
 // GAMEPLAY: 
 //  - Roll Phase: Player rolls die, if holding treasure, subtract amount of treasure from roll
 //  - Movement Phase: Player moves according to roll value, can opt to turn backward but can only 

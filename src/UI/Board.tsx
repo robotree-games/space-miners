@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Game, IPlayer, IGameCtx } from 'boardgame.io/core';
 import { AI, IAIMoveObj } from 'boardgame.io/ai';
+import ParticleBackground from './Particles/Particles';
+import './Board.css';
 
 type GameState = {
     cells: Array<IPlayer | null>,
@@ -40,7 +42,7 @@ class Board extends React.Component<IProps> {
 
     render() {
       const cellStyle: React.CSSProperties = {
-        border: '1px solid #555',
+        border: '1px solid #fff',
         width: '50px',
         height: '50px',
         lineHeight: '50px',
