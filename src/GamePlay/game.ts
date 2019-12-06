@@ -3,9 +3,9 @@ import { AI, IAIMoveObj } from 'boardgame.io/ai';
 import GameState from '../GameState/GameState';
 import { once } from 'cluster';
 import { Z_MEM_ERROR } from 'zlib';
+import { any } from 'prop-types';
 
-
-const gState = new GameState();
+const gState = new GameState(any);
 const setup = gState.setup;
 // GAMEPLAY: 
 //  - Roll Phase: Player rolls die, if holding treasure, subtract amount of treasure from roll
@@ -18,7 +18,7 @@ const setup = gState.setup;
 // END CONDITION: The Air supply reaches zero. Count treasure of all players who made it back to the ship (currentposition < 0)
 
 function checkGame(G: any, ctx: any) {
-    if (G.players.every.isSafe = true) {
+    if (G.players.every.isSafe == true) {
         endGame(G, ctx)
     }
     if (G.air === 0) {
@@ -27,6 +27,7 @@ function checkGame(G: any, ctx: any) {
 }
 
 function endGame(G: any, ctx: any) {
+    // TODO: 
     // check array for all safe players and order by treasure values. most treasure wins
 
     let winningPlayer = 'sean'

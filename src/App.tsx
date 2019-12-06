@@ -7,7 +7,7 @@ import GameBoard from './UI/Board';
 import ParticleBackround from './UI/Particles/Particles';
 import { Game, IPlayer, IGameCtx } from 'boardgame.io/core';
 import MainMenu from './UI/MainMenu/MainMenu';
-import { any } from 'prop-types';
+import { any, number } from 'prop-types';
 import ParticleBackground from './UI/Particles/Particles';
 
 
@@ -21,7 +21,10 @@ const GameClient:any = Client({
 class App extends Component {
   
   state = {
-    isMainMenuVisible: true
+    isMainMenuVisible: true,
+    isSettngsMenuVisible: false,
+    playerNumber: 0,
+    bots: 0
     //TODO: 
     // add number of player
     // add local or online boolean
@@ -33,6 +36,7 @@ class App extends Component {
       isMainMenuVisible: true
     })
   }
+
   startGame = () => {
     this.setState({
       isMainMenuVisible: false
@@ -45,7 +49,7 @@ class App extends Component {
         {isMainMenuVisible ? (
           //@ts-ignore
           <MainMenu
-            startGame={this.startGame}
+          startGame={this.startGame}
           />
         ) : (
           <GameClient />

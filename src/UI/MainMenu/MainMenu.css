@@ -19,15 +19,14 @@
     grid-template-columns: repeat(1, 1fr);
 }
 .btn {
-	padding: 20px;
-	width: 80%;
-	border-radius: 2px;
-	border: solid 4px #556F7A;
+	padding: 1%;
+	border-radius: 15px;
+	border: solid 2px #CFEBDF;
 	font-weight: 700;
 	font-size: 1.4rem;
 	text-transform: uppercase;
 	background-color: transparent;
-	color: #556F7A;
+	color: #CFEBDF;
 	cursor: pointer;
     box-shadow: 0 0 20px rgba(10,10,10,.5);
     text-align: center;
@@ -38,7 +37,7 @@
 .btn:hover {
     background: #556F7A;
     color: #CFEBDF;
-    border: 4px solid #CFEBDF;	
+    border: 2px solid #CFEBDF;	
 }
 .btn:active {
     transition-property: width;
